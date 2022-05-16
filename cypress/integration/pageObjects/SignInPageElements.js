@@ -1,15 +1,15 @@
 class SignInPageElements{
 
     getEmailBox() {
-        return cy.get('#email')
+        return cy.get('[for="email"]')
     }
 
     getPasswordBox() {
-        return cy.get('#password')
+        return cy.get('[for="password"]')
     }
 
     getSignInWithFacebook() {
-        return cy.get('.sds-button.facebook-button')
+        return cy.get('.facebook-svg-icons')
     }
 
     getSignInWithGoogle() {
@@ -18,6 +18,14 @@ class SignInPageElements{
 
     getSignInWithApple() {
         return cy.get('.sds-button.apple-button')
+    }
+
+    getSignInbutton() {
+        return cy.get('button.sds-button')
+    }
+
+    getUserAreaName() {
+        return cy.get('.desktop-nav-user-name')
     }
 
 
