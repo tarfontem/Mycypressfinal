@@ -1,20 +1,23 @@
 /// <reference types="Cypress" />
 
-import HeaderElement from "../pageObjects/HeaderElement"
-import SignInPageElements from "../pageObjects/SignInPageElements"
+import HeaderElements from "../../support/pageObjects/HeaderElements"
+import SignInPageElements from "../../support/pageObjects/SignInPageElements"
+
+const headerElement = new HeaderElements() //instantiate the HeaderElement class
+const signInPage = new SignInPageElements()  //instantiate the SignInPageElements
 
 describe('Sign In Test Suite', function(){
 
     
 
-    before(function() {
+    beforeEach(function() {
 
         cy.visit(Cypress.env('url'));
-
+        
 
     })
 
-    before(function() {
+    beforeEach(function() {
 
         cy.fixture('example').then(function(data)
         {
@@ -28,8 +31,8 @@ describe('Sign In Test Suite', function(){
 
     it('Login in with valid user input', function() {
 
-        const headerElement = new HeaderElement() //instantiate the HeaderElement class
-        const signInPage = new SignInPageElements()  //instantiate the SignInPageElements
+
+
 
         
         headerElement.getSignIn().click()
@@ -46,6 +49,34 @@ describe('Sign In Test Suite', function(){
 
     })
    
+    it('Login in with invalid username and password', function() { 
+        headerElement.getSignIn().click()
+        signInPage.getEmailBox().type(this.data.email1)
+        signInPage.getPasswordBox().type(this.data.password1)
+        signInPage.getSignInbutton().click()
+        signInPage.getWrongNotification().should('include.text','We were unable to sign you in')
+
+    })
+
+    it('Login in with valid username and invalid password', function() { 
+        headerElement.getSignIn().click()
+        signInPage.getEmailBox().type(this.data.email)
+        signInPage.getPasswordBox().type(this.data.password1)
+        signInPage.getSignInbutton().click()
+        signInPage.getWrongNotification().should('include.text','We were unable to sign you in')
+
+    })
+
+    it('Verify facebook,google And apple login links', function() { 
+        headerElement.getSignIn().click()
+        //headerElement.getSignInWithFacebook().click()
+        signInPage.getSignInWithFacebook().invoke('attr', 'href').should('eq', '/signin/fb_go/')
+        signInPage.getSignInWithGoogle().invoke('attr', 'href').should('eq', '/signin/google_go/')
+        signInPage.getSignInWithApple().invoke('attr', 'href').should('eq', '/signin/apple_go/')
+        
+
+    })
+    
     
 
 })

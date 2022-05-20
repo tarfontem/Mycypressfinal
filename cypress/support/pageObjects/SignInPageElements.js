@@ -9,7 +9,7 @@ class SignInPageElements{
     }
 
     getSignInWithFacebook() {
-        return cy.get('.facebook-svg-icons')
+        return cy.get('.sds-button.facebook-button')
     }
 
     getSignInWithGoogle() {
@@ -27,6 +27,32 @@ class SignInPageElements{
     getUserAreaName() {
         return cy.get('.desktop-nav-user-name')
     }
+
+    getWrongNotification()
+    {
+        return cy.get('.sds-notification__title')
+    }
+
+    getPageTitle()
+    {
+        return cy.url()
+    }
+
+    getFacebookUserName()
+    {
+        return cy.get('#email')
+    }
+
+    getFacebookPassword()
+    {
+        return cy.get('#pass')
+    }
+
+    getFacebookLoginButton()
+    {
+        return cy.get('#loginbutton')
+    }
+
 
 
 } export default SignInPageElements

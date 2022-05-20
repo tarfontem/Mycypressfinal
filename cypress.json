@@ -1,5 +1,6 @@
 {
   "defaultCommandTimeout":10000,
+  "defaultCommandTimeout":30000,
     "env": {
         "url": "https://www.cars.com/"
       }

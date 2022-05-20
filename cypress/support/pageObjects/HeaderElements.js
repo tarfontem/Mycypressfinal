@@ -1,4 +1,4 @@
-class HeaderElement{
+class HeaderElements{
 
 getCarsForSale() {
     return cy.get('a[data-linkname="header-buy"]')
@@ -34,4 +34,4 @@ getSignUp() {
 
 
 
-} export default HeaderElement
+} export default HeaderElements
