@@ -31,14 +31,77 @@ describe('First Test Suite', function(){
         cy.login(this.data.email,this.data.password)
         cy.searchByMake('New cars','Jeep','All models','$30,000','20 miles',' ')
         homepage.getPageTitle().should('include','Jeep')//assure that the page title contains the make searched
-        homepage.getMakeResult().find('[data-linkname=vehicle-listing]').first().nextAll().should('include','Jeep')
+       
+        //homepage.getMakeResultHeading().first().nextAll().then(function(otherelements)
+        homepage.getMakeResultHeading().first().scrollIntoView().within(() => {
+            // by default, "a" returns all 3 elements
+            
+               cy.get('h2.title').should('include.text', 'Jeep')
+            
+            //cy.get('h2.title').should('include.text', 'Jeep')
+            // select "a" elements with "href" attribute
+           // cy.get('a:link').should('have.length', 2)
+            // which is equivalent to
+            //cy.get('a[href]').should('have.length', 2)
+          })
+
+          
+///
+          homepage.getMakeResultHeading().each(($el,index,$list) =>
         
+          {
+            const headertext = $el.text() 
+             for(index=1;index<$list.length;index++){
 
+                if(headertext){
+                    expect(headertext).to.contain('Jeep')
+                }
+            }
+          })
 
-
+          homepage.getMakeStockType().each(($el,index,$list) =>
         
-    })
+          {
+             
+            const stocktext = $el.text() 
+            for(index=1;index<$list.length;index++){
+
+               if(stocktext){
+                   expect(stocktext).to.contain('New')
+               }
+           }
+          })
+
+          homepage.getMakePrice().each(($el,index,$list) =>
+        {
+
+            const stocksplit = $el.text()
+            cy.log(stocksplit)
+            const stockpricestring = stocksplit.substring(1,stocksplit.length)
+            cy.log(stockpricestring)
+            const stockprice = parseInt(stockpricestring.split(',').join('')) 
+            cy.log(stockprice)
+            for(index=1;index<$list.length;index++){
+
+               if(stockprice){
+                   expect(stockprice).to.be.lessThan(30001)
+               }
+           }
+
+
+           
+        })
+        homepage.getCheckAvailabilityButton().each(($el,index,$list) =>
+           {
    
-    
-
+               const checkavailability = $el.text()
+               for(index=1;index<$list.length;index++){
+   
+                  if(checkavailability){
+                      expect(checkavailability).to.contain('Check availability')
+                  }
+              }
+   
+           })
+    })
 })

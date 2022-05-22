@@ -1,9 +1,13 @@
 {
-  "name": "Ive Tard",
-  "email": "tardzfont@yahoo.com",
-  "password":"fti221987",
-  "email1": "tardzfonti@yahoo.com",
-  "password1":"fti2219871",
-  "zip":"91040",
-  "body": "Fixtures are a great way to mock data for responses to routes"
-}
+    "name": "Ive Tard",
+    "email": "tardzfont@yahoo.com",
+    "password":"fti221987",
+    "email1": "tardzfonti@yahoo.com",
+    "password1":"fti2219871",
+    "zip":"91040",
+    "location": "Ohio",
+    "description":"This is a nice car, I have been enjoying it driving around town. However, I brrougt it for long trips. When i will be at the vountry side next month, I'd come with it in full. thanks",
+  
+    "body": "Fixtures are a great way to mock data for responses to routes"
+  }
+  

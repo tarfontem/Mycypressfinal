@@ -32,9 +32,7 @@ const homepage = new HomePageElements()
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (email, password) => { 
-    headerElement.getSignIn().click()
-
-    
+ 
     signInPage.getEmailBox().type(email)
     signInPage.getPasswordBox().type(password)
     signInPage.getSignInbutton().click()
@@ -55,3 +53,23 @@ Cypress.Commands.add('login', (email, password) => {
         homepage.getSearchMakesBotton().click({force: true})
         
          })
+
+
+    Cypress.Commands.add('searchByBodyType', (NewOrUsed,BodyType,Price,Distance,zip) => { 
+
+        homepage.getBodyStyleOption().click({force: true}).then(function()
+        {
+
+        homepage.getNewUsedBodyStyleDropDown().select(NewOrUsed)
+        homepage.getBodyStyleDropDown().select(BodyType)
+        homepage.getPriceBodyStyleDropDown().select(Price)
+        homepage.getZipBodyStyleBox().type(zip)
+        homepage.getDistanceBodyStyleDropDown().select(Distance)
+        homepage.getSearchBodyStyleBotton().click({force: true})
+
+        })
+        
+            
+        })
+
+            
