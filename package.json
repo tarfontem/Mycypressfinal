@@ -15,8 +15,8 @@
     "url": "https://github.com/tarfontem/Mycypressfinal/issues"
   },
   "homepage": "https://github.com/tarfontem/Mycypressfinal#readme",
+  "description": "",
   "dependencies": {
     "cypress": "^9.6.1"
-  },
-  "description": ""
+  }
 }
