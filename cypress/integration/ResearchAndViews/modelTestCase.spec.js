@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
-import HomePageElements from "../../support/pageObjects/HomePageElements"
-import HeaderElements from "../../support/pageObjects/HeaderElements"
-import ResearchAndReviews from "../../support/pageObjects/ResearchAndReviews"
+import HomePageElements from "../../support/pageObjects/HomePageElements.js"
+import HeaderElements from "../../support/pageObjects/HeaderElements.js"
+import ResearchAndReviews from "../../support/pageObjects/ResearchAndReviews.js"
 
 
 //const headerElement = new HeaderElements() //instantiate the HeaderElement class
@@ -10,6 +10,7 @@ import ResearchAndReviews from "../../support/pageObjects/ResearchAndReviews"
 
 const headerElement = new HeaderElements()
 const researchAndReviews = new ResearchAndReviews()
+
 
 describe('Model Test Case Research And Reviews', function(){
 
@@ -22,7 +23,7 @@ describe('Model Test Case Research And Reviews', function(){
 
     })
 
-    before(function() {
+    beforeEach(function() {
 
         cy.fixture('example').then(function(data)
         {
@@ -32,12 +33,11 @@ describe('Model Test Case Research And Reviews', function(){
 
 
     })
- /* 
+ 
     it('By Model Home Scenario Default Mode', function() {
 
         
-        headerElement.getSignIn().click()
-        cy.login(this.data.email,this.data.password)
+        
         headerElement.getResearchAndReviews().click()
         researchAndReviews.getByModelOption().click()
         researchAndReviews.getMakeBox().should('have.attr','name', 'make')
@@ -47,17 +47,16 @@ describe('Model Test Case Research And Reviews', function(){
         researchAndReviews.getTitle().should('contain','Car Research, Specs & Compare New Cars')
 
     })
-    */
+    
 
     it('Validate Selection By Model', function() {
 
-        headerElement.getSignIn().click()
-        cy.login(this.data.email,this.data.password)
+        
         headerElement.getResearchAndReviews().click()
         
         researchAndReviews.getByModelOption().click()
         researchAndReviews.getMakeBox().select('Jeep')
-        researchAndReviews.getModelBox().select('Wrangler')
+        researchAndReviews.getModelBox().select('Wrangler');
         researchAndReviews.getYearsBox().select('2020')
         researchAndReviews.getResearchButton().click({force: true})
         researchAndReviews.getHeaderLine().should('contain','2020 Jeep Wrangler')
@@ -98,7 +97,7 @@ describe('Model Test Case Research And Reviews', function(){
 
         
 
-    })
+    })/** 
 
     it('Submit Error Without Filling Any Field', function() {
         cy.wait(4000)
@@ -106,13 +105,17 @@ describe('Model Test Case Research And Reviews', function(){
         researchAndReviews.getComfortRating().eq(2).click({force: true})
         researchAndReviews.getInteriorDesignRating().eq(3).click({force: true})
         researchAndReviews.getPerformanceRating().eq(4).click({force: true})
-        researchAndReviews.getValueforMoneyRating().eq(5).click({force: true})
+        researchAndReviews.getValueforMoneyRating().eq(0).click({force: true})
         researchAndReviews.getStyleExteriorRating().eq(1).click({force: true})
         researchAndReviews.getReliabilityRating().eq(3).click({force: true})
         researchAndReviews.getYourRecommendation().eq(1).check({force: true})
         researchAndReviews.getVehicleReviewFormTitle().type('My confirmation and review')
-        researchAndReviews.getDescribebox().type(this.data.description)
-        researchAndReviews.getStateOfPurchase().eq(1).check({force: true})
+        researchAndReviews.getDescribebox2().type(this.data.description,{force: true})
+        
+        //.find('textarea').type(this.data.description,{force: true})
+        
+        //researchAndReviews.getDescribebox().prev().find('.hidden').type(this.data.description,{force: true})
+        researchAndReviews.getStateOfPurchase().eq(1).click({force: true})
       
         
         researchAndReviews.getPrimaryUse().eq(2).click({force: true})
@@ -136,7 +139,7 @@ describe('Model Test Case Research And Reviews', function(){
         
 
     })
-
+/** 
     it('Submit less than 25 words in Review Box', function() {
 
         
@@ -161,7 +164,7 @@ describe('Model Test Case Research And Reviews', function(){
 
     })
     
-    
+    */
     
 
 })

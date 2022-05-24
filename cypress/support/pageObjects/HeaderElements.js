@@ -29,7 +29,7 @@ getSignIn() {
 
 getSignUp() {
 
-    return cy.get('a.header-signup')
+    return cy.get('a.header-signup');
 }
 
 

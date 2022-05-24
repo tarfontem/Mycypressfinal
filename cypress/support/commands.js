@@ -7,9 +7,9 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-import HeaderElements from "../support/pageObjects/HeaderElements"
-import SignInPageElements from "../support/pageObjects/SignInPageElements"
-import HomePageElements from "./pageObjects/HomePageElements"
+import HeaderElements from "../support/pageObjects/HeaderElements.js"
+import SignInPageElements from "../support/pageObjects/SignInPageElements.js"
+import HomePageElements from "./pageObjects/HomePageElements.js"
 
 const headerElement = new HeaderElements() //instantiate the HeaderElement class
 const signInPage = new SignInPageElements()  //instantiate the SignInPageElements

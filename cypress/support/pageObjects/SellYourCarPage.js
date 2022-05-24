@@ -1,5 +1,3 @@
-import cypress from "cypress"
-
 class SellYourCarPage{
 
     getPageTitle()
@@ -9,32 +7,34 @@ class SellYourCarPage{
 
     getByPlateOption()
     {
-        cy.get('#by-plate')
+       return cy.contains('License plate')
     }
 
     getLicencePlateNumberBox()
     {
-        cy.get('#license_plate_number')
+        return cy.get('#license_plate_number')
     }
+
+    
 
     getStateDropDown()
     {
-        cy.get('#license_plate_state')
+        return cy.get('#license_plate_state')
     }
 
     getByVinOption()
     {
-        cy.get('#by-vin')
+        return cy.get('#by-vin')
     }
 
     getVinNumberBox()
     {
-        cy.get('#vin')
+        return cy.get('#vin')
     }
 
     getStartedButton()
     {
-        cy.get('button.find-car-details').contains('Get started')
+        return cy.contains('Get started')
     }
 
 } export default SellYourCarPage

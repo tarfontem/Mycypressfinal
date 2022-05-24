@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
 
-import HeaderElements from "../../support/pageObjects/HeaderElements"
-import SellYourCarPage from "../../support/pageObjects/SellYourCarPage"
+import HeaderElements from "../../support/pageObjects/HeaderElements.js"
+import SellYourCarPage from "../../support/pageObjects/SellYourCarPage.js"
 
 
 //const headerElement = new HeaderElements() //instantiate the HeaderElement class
@@ -36,15 +36,15 @@ describe('Verify the functionality of Sale your Car Page', function(){
 
     it('Validate Licence Plate And Vin Entry Options', function() {
 
-        headerElement.getSignIn().click()
+        headerElement.getSignIn().click({ force: true })
         cy.login(this.data.email,this.data.password)
-        headerElement.getSellYourCar().click()
+        headerElement.getSellYourCar().click({ force: true })
 
 
-        sellYourCarPage.getByPlateOption().click()
+        sellYourCarPage.getByPlateOption().should('contain','License plate').click()
         sellYourCarPage.getPageTitle().should('contains','Cars.com')
-        sellYourCarPage.getLicencePlateNumberBox().next().should('contain','License plate number')
-
+        sellYourCarPage.getLicencePlateNumberBox().should('contains','License plate number')
+        sellYourCarPage.getStartedButton().should('contain','Get started')
 
 
 

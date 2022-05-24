@@ -1,6 +1,9 @@
 {
-  "defaultCommandTimeout":10000,
+  "defaultCommandTimeout":500000,
   "defaultCommandTimeout":30000,
+  "taskTimeout":100000,
+  "requestTimeout":15000,
+  
     "env": {
         "url": "https://www.cars.com/"
       }
