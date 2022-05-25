@@ -1,5 +1,7 @@
 {
     "name": "Ive Tard",
+    "FirstName": "Ive",
+    "LastName":"Tard",
     "email": "tardzfont@yahoo.com",
     "password":"fti221987",
     "email1": "tardzfonti@yahoo.com",
@@ -7,7 +9,12 @@
     "zip":"91040",
     "location": "Ohio",
     "description":"This is a nice car, I have been enjoying it driving around town. However, I brrougt it for long trips. When i will be at the vountry side next month, I'd come with it in full. thanks",
-  
+    "license_Number":"WQ3454353643WEAD",
+    "VIN_Number":"3GCEC14X66G218202",
+    "state":"CA",
+    "Wrong_VIN": "3G80C149667218202",
+    
+
     "body": "Fixtures are a great way to mock data for responses to routes"
   }
   

@@ -15,14 +15,14 @@ describe('Research By Type Test Case', function(){
 
     
 
-    before(function() {
+    beforeEach(function() {
 
         cy.visit(Cypress.env('url'));
         
 
     })
 
-    before(function() {
+    beforeEach(function() {
 
         cy.fixture('example').then(function(data)
         {
@@ -34,22 +34,33 @@ describe('Research By Type Test Case', function(){
     })
 
 
-    it('Validate Selection By Model Page', function() {
+    it('Validate Selection By Type Page', function() {
 
         headerElement.getSignIn().click()
         cy.login(this.data.email,this.data.password)
         headerElement.getResearchAndReviews().click()
         researchAndReviews.getModelTypes().click()
-        researchAndReviews.getTitle().should('contain','Car Research')
-        researchAndReviews.getSearchByType().should('have.length','12')
+        researchAndReviews.getModelTypes().should('have.attr','aria-selected','true')
+        researchAndReviews.getByMakeOption().should('have.attr','aria-selected','false')
+        researchAndReviews.getByModelOption().should('have.attr','aria-selected','false')
+        researchAndReviews.getPageTitle().should('contain','Car Research')
+        researchAndReviews.getUrl().should('contain','research')
+        researchAndReviews.getSedanCars().should('have.length','12')
+
+
+     
 
 
     })
 
     it('Validate Single Car Selection', function() {
+        headerElement.getSignIn().click()
+        cy.login(this.data.email,this.data.password)
+        headerElement.getResearchAndReviews().click()
 
-        researchAndReviews.getSearchByType().eq(0).click()
-        researchAndReviews.getSedanCars().should('have.length',20)
+        researchAndReviews.getSearchByType().click({force:true})
+        researchAndReviews.getSedanCars().eq(0).click()
+        researchAndReviews.getCarResults().should('have.length','20')
         researchAndReviews.getCarMoreDetails().should('contain','Model details')
         researchAndReviews.getCarMoreDetails().should('contain','Shop now')
         researchAndReviews.getSedanCheckbox().should('be.checked')

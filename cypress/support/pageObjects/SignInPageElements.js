@@ -53,6 +53,17 @@ class SignInPageElements{
         return cy.get('#loginbutton')
     }
 
+    getPageUrl()
+    {
+        return cy.url()
+    }
+
+    getSignOutButton()
+    {
+        return cy.get('.header-signout').invoke('show')
+    }
+
+
 
 
 } export default SignInPageElements

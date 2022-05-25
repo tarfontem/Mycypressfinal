@@ -214,12 +214,12 @@ class HomePageElements{
 
     getTryAgainButton()
     {
-        return cy.get('.try-again-prompt')
+        return cy.get('.try-again-prompt').invoke('show')
     }
 
     getLinkBoxLocalInventory()
     {
-        return cy.get('.sds-container__actions').contains('Local inventory')
+        return cy.get('.sds-container__actions').invoke('show')
     }
 
     getLinkBoxMoreDetails()

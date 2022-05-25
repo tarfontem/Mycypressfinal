@@ -29,7 +29,7 @@ describe('Sign In Test Suite', function(){
     })
 
 
-    it('Login in with valid user input', function() {
+    it('Login in with valid user input And SignOut', function() {
 
 
 
@@ -39,13 +39,18 @@ describe('Sign In Test Suite', function(){
         //assert that we are in the login page
         //assert that login page contains the email and password box
         
-        signInPage.getEmailBox().should('include.text','Email') ///should('have.class','.sds-label','Email')
-        
-        signInPage.getPasswordBox().should('include.text','Password')
+       
         signInPage.getEmailBox().type(this.data.email)
         signInPage.getPasswordBox().type(this.data.password)
         signInPage.getSignInbutton().click()
         signInPage.getUserAreaName().should('include.text',this.data.name)
+        signInPage.getPageUrl().should('include','cars.com')
+        signInPage.getSignOutButton().should('contain','Sign out')
+        signInPage.getSignOutButton().first().click({ force: true })
+        cy.contains(this.data.name).should('not.exist')
+
+
+
 
     })
    
@@ -55,6 +60,7 @@ describe('Sign In Test Suite', function(){
         signInPage.getPasswordBox().type(this.data.password1)
         signInPage.getSignInbutton().click()
         signInPage.getWrongNotification().should('include.text','We were unable to sign you in')
+        
 
     })
 
@@ -67,9 +73,11 @@ describe('Sign In Test Suite', function(){
 
     })
 
-    it('Verify facebook,google And apple login links', function() { 
+    it('Verify Login Page Options', function() { 
         headerElement.getSignIn().click()
-        //headerElement.getSignInWithFacebook().click()
+        signInPage.getEmailBox().should('include.text','Email') ///should('have.class','.sds-label','Email')
+        signInPage.getPasswordBox().should('include.text','Password')
+        signInPage.getPageUrl().should('include','signin')
         signInPage.getSignInWithFacebook().invoke('attr', 'href').should('eq', '/signin/fb_go/')
         signInPage.getSignInWithGoogle().invoke('attr', 'href').should('eq', '/signin/google_go/')
         signInPage.getSignInWithApple().invoke('attr', 'href').should('eq', '/signin/apple_go/')

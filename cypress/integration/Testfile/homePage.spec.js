@@ -13,14 +13,14 @@ describe('Sign In Test Suite', function(){
 
     
 
-    before(function() {
+    beforeEach(function() {
 
         cy.visit(Cypress.env('url'));
         
 
     })
 
-    before(function() {
+    beforeEach(function() {
 
         cy.fixture('example').then(function(data)
         {
@@ -56,37 +56,6 @@ describe('Sign In Test Suite', function(){
                 }
 
              }
-
-        homepage.getMakeStockType().each(($el,index,$list) =>
-        
-          {
-             
-            const stocktext = $el.text() 
-            for(index=1;index<$list.length;index++){
-
-               if(stocktext){
-                   expect(stocktext).to.contain('New')
-               }
-           }
-
-
-          })
-
-        homepage.getMakePrice().each(($el,index,$list) =>
-        {
-
-            const stockprice = $el.text()
-            for(index=1;index<$list.length;index++){
-
-               if(stocktext){
-                   expect(stocktext).to.contain('New')
-               }
-           }
-
-        
-
-        })
-
        
 
 
@@ -145,9 +114,7 @@ describe('Sign In Test Suite', function(){
         homepage.getTowingCheckBox1().check({force: true}).should('be.checked')
         homepage.getTowingCheckBox2().check({force: true}).should('be.checked')
         homepage.getTowingCheckBox3().check({force: true}).should('be.checked')
-        homepage.getLinkBoxLocalInventory().should('have.attr','href')
-        homepage.getLinkBoxMoreDetails().should('have.attr','href')
-        homepage.getTryAgainButton().invoke('attr','class').should('equal','sds-button--secondary')
+        homepage.getTryAgainButton().should('contain','Try again')
     
         
         

@@ -6,22 +6,22 @@ class ResearchAndReviews{
     }
     getMakeBox()
     {
-        return cy.get('#make-select')
+        return cy.get('#make-select').invoke('show')
     }
 
     getModelBox()
     {
-        return cy.get('#model-select')
+        return cy.get('#model-select').invoke('show')
     }
 
     getYearsBox()
     {
-        return cy.get('#year-select')
+        return cy.get('#year-select').invoke('show')
     }
 
     getResearchButton()
     {
-        return cy.get('.sds-button')
+        return cy.get('button.sds-button').invoke('show')
     }
 
     getTitle()
@@ -104,7 +104,7 @@ class ResearchAndReviews{
 
     getDescribebox2()
     {
-        return cy.contains('Your review').siblings()
+        return cy.get('#vehicle_review_form_body').invoke('show')
     }
 
     getDescribeboxhidden()
@@ -122,39 +122,40 @@ class ResearchAndReviews{
         return cy.get('#title-anchor').find('.sds-label')
     }
 
+  
     getStateOfPurchase()
     {
-        return cy.get('#purchased_new-anchor .sds-radio')
+        return cy.get('#purchased_new-anchor').invoke('show').find('input')
     }
 
     getPrimaryUse()
     {
-        return cy.get('#primary_use-anchor .sds-radio')
+        return cy.get('#primary_use-anchor').invoke('show').find('input')
     }
 
     getOwnerOrFormer()
     {
-        return cy.get('#scope-anchor .sds-radio')
+        return cy.get('#scope-anchor').invoke('show').find('input')
     }
 
     getDisplayNameBox()
     {
-        return cy.get('#username-anchor .sds-label')
+        return cy.get('#vehicle_review_form_username').invoke('show')
     }
 
     getDisplayLocationBox()
     {
-        return cy.get('#user_location-anchor .sds-label')
+        return cy.get('#vehicle_review_form_user_location').invoke('show')
     }
 
     getDisplayEmailBox()
     {
-        return cy.get('#email-anchor .sds-label')
+        return cy.get('#vehicle_review_form_email').invoke('show')
     }
 
     getSubmitButton()
     {
-        return cy.get('.sds-button')
+        return cy.get('.sds-button').invoke('show')
     }
 
     getErrorMessage()
@@ -164,12 +165,12 @@ class ResearchAndReviews{
 
     getSearchByType()
     {
-        return cy.get('#by-type')
+        return cy.get('a#by-type').invoke('show')
     }
 
     getModelTypes()
     {
-        return cy.get('#by-type')
+        return cy.get('#by-type').invoke('show')
     }
 
     getPageTitle()
@@ -177,24 +178,29 @@ class ResearchAndReviews{
         return cy.title()
     }
 
-    getSearchByType()
-    {
-        return cy.get('.desktop-link-pack .sds-link-pack .sds-list li')
-    }
-
     getSedanCars()
     {
-        return cy.get('.sds-container--card-actions')
+        return cy.get('div.type-link-container:visible').invoke('show')
+    }
+
+    getUrl()
+    {
+        return cy.url()
+    }
+    
+    getCarResults()
+    {
+        return cy.get('.sds-container--card-actions').invoke('show')
     }
 
     getCarMoreDetails()
     {
-        return cy.get('.sds-container__actions a')
+        return cy.get('.sds-container__actions a').invoke('show')
     }
 
     getSedanCheckbox()
     {
-        return cy.get('#sedan-desktop')
+        return cy.get('#sedan-desktop').focus()
     }
 
     getByMakeOption()

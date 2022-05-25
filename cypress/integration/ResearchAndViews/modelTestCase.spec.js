@@ -33,7 +33,7 @@ describe('Model Test Case Research And Reviews', function(){
 
 
     })
- 
+ /** 
     it('By Model Home Scenario Default Mode', function() {
 
         
@@ -47,10 +47,12 @@ describe('Model Test Case Research And Reviews', function(){
         researchAndReviews.getTitle().should('contain','Car Research, Specs & Compare New Cars')
 
     })
-    
+    */
 
     it('Validate Selection By Model', function() {
 
+        headerElement.getSignIn().click()
+        cy.login(this.data.email,this.data.password)
         
         headerElement.getResearchAndReviews().click()
         
@@ -72,6 +74,7 @@ describe('Model Test Case Research And Reviews', function(){
 
     it('Inspect Review Page', function() {
 
+        researchAndReviews.getWriteReview().scrollIntoView()
         
         researchAndReviews.getWriteReview().click()
         researchAndReviews.getTitle().should('contain','Cars.com')
@@ -89,28 +92,33 @@ describe('Model Test Case Research And Reviews', function(){
         researchAndReviews.getStateOfPurchase().should('have.length','2').and('not.be.checked')
         researchAndReviews.getPrimaryUse().should('have.length','3').and('not.be.checked')
         researchAndReviews.getOwnerOrFormer().should('have.length','2').and('not.be.checked')
-        researchAndReviews.getDisplayNameBox().should('contain','Your display name').and('have.length','1')
-        researchAndReviews.getDisplayLocationBox().should('contain','Your city, state')
+        researchAndReviews.getDisplayNameBox().next().should('contain','Your display name')
+        researchAndReviews.getDisplayLocationBox().next().should('contain','Your city, state')
         researchAndReviews.getSubmitButton().should('contain','Submit review')
-
 
 
         
 
-    })/** 
+    })
 
     it('Submit Error Without Filling Any Field', function() {
         cy.wait(4000)
         researchAndReviews.getOverAllRating().eq(1).click({force: true})
+        
         researchAndReviews.getComfortRating().eq(2).click({force: true})
         researchAndReviews.getInteriorDesignRating().eq(3).click({force: true})
+        cy.wait(4000)
         researchAndReviews.getPerformanceRating().eq(4).click({force: true})
         researchAndReviews.getValueforMoneyRating().eq(0).click({force: true})
+        cy.wait(4000)
         researchAndReviews.getStyleExteriorRating().eq(1).click({force: true})
         researchAndReviews.getReliabilityRating().eq(3).click({force: true})
+        cy.wait(4000)
         researchAndReviews.getYourRecommendation().eq(1).check({force: true})
         researchAndReviews.getVehicleReviewFormTitle().type('My confirmation and review')
+        cy.wait(4000)
         researchAndReviews.getDescribebox2().type(this.data.description,{force: true})
+        cy.wait(4000)
         
         //.find('textarea').type(this.data.description,{force: true})
         
@@ -119,17 +127,22 @@ describe('Model Test Case Research And Reviews', function(){
       
         
         researchAndReviews.getPrimaryUse().eq(2).click({force: true})
+        cy.wait(4000)
         researchAndReviews.getOwnerOrFormer().eq(1).click({force: true})
         researchAndReviews.getDisplayNameBox().type(this.data.name)
+        cy.wait(4000)
         researchAndReviews.getDisplayLocationBox().type(this.data.location)
         researchAndReviews.getPrimaryUse().eq(1).click({force: true})
+        cy.wait(4000)
+        researchAndReviews.getDisplayEmailBox().type(this.data.email1)
         
 
 
 
 
 
-        researchAndReviews.getSubmitButton().click({force: true})
+        researchAndReviews.getSubmitButton().pause().click({force: true})
+        
         cy.wait(4000)
         
         researchAndReviews.getErrorMessage().should('contain','We were unable to submit your review')
@@ -139,18 +152,18 @@ describe('Model Test Case Research And Reviews', function(){
         
 
     })
-/** 
+
     it('Submit less than 25 words in Review Box', function() {
 
         
-        researchAndReviews.getOverAllRating().eq(1).click()
-        researchAndReviews.getComfortRating().eq(2).click()
-        researchAndReviews.getInteriorDesignRating().eq(3).click()
-        researchAndReviews.getPerformanceRating().eq(4).click()
-        researchAndReviews.getValueforMoneyRating().eq(5).click()
-        researchAndReviews.getStyleExteriorRating().eq(1).click()
-        researchAndReviews.getReliabilityRating().eq(3).click()
-        researchAndReviews.getYourRecommendation().as('checkboxes').check()
+        researchAndReviews.getOverAllRating().eq(1).click({force:true})
+        researchAndReviews.getComfortRating().eq(2).click({force:true})
+        researchAndReviews.getInteriorDesignRating().eq(3).click({force:true})
+        researchAndReviews.getPerformanceRating().eq(4).click({force:true})
+        researchAndReviews.getValueforMoneyRating().eq(3).click({force:true})
+        researchAndReviews.getStyleExteriorRating().eq(1).click({force:true})
+        researchAndReviews.getReliabilityRating().eq(3).click({force:true})
+        researchAndReviews.getYourRecommendation().as('checkboxes').check({force:true})
         researchAndReviews.getDescribebox().should('contain','Your review')
         researchAndReviews.getVehicleReviewFormTitle().should('contain','Your review headline')
         researchAndReviews.getStateOfPurchase().should('have.length','2').and('not.be.checked')
@@ -164,7 +177,7 @@ describe('Model Test Case Research And Reviews', function(){
 
     })
     
-    */
+    
     
 
 })
