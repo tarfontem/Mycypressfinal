@@ -45,14 +45,14 @@ Cypress.Commands.add('login', (email, password) => {
 
 
      Cypress.Commands.add('searchByMake', (NewOrUsed, Make,Model,Price,Distance,zip) => { 
-        homepage.getMakeOption().trigger(click())
-        homepage.getNewUsedMakesDropDown().trigger(select(NewOrUsed)) //select New Car
-        homepage.getMakesMakesDropDown().trigger(select(Make)) // select Jeep make
-        homepage.getModelMakesDropDown().trigger(select(Model))//select all models
-        homepage.getPriceMakesDropDown().trigger(select(Price))//select a maximum price of $30,000
-        homepage.getDistanceMakesDropDown().trigger(select(Distance)) // select a mileage of 20 miles
+        homepage.getMakeOption().click()
+        homepage.getNewUsedMakesDropDown().select(NewOrUsed) //select New Car
+        homepage.getMakesMakesDropDown().select(Make) // select Jeep make
+        homepage.getModelMakesDropDown().select(Model)//select all models
+        homepage.getPriceMakesDropDown().select(Price)//select a maximum price of $30,000
+        homepage.getDistanceMakesDropDown().select(Distance)// select a mileage of 20 miles
         homepage.getZipMakesBox().type(zip,{force: true}) // type the zip code from fixtures folder
-        homepage.getSearchMakesBotton().trigger(click({force: true}))
+        homepage.getSearchMakesBotton().click({force: true})
         
          })
 
@@ -62,7 +62,7 @@ Cypress.Commands.add('login', (email, password) => {
         homepage.getBodyStyleOption().click({force: true}).then(function()
         {
 
-        homepage.getNewUsedBodyStyleDropDown().trigger(select(NewOrUsed))
+        homepage.getNewUsedBodyStyleDropDown().select(NewOrUsed)
         homepage.getBodyStyleDropDown().select(BodyType)
         homepage.getPriceBodyStyleDropDown().select(Price)
         homepage.getZipBodyStyleBox().type(zip)

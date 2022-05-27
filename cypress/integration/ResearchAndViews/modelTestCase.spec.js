@@ -33,7 +33,7 @@ describe('Model Test Case Research And Reviews', function(){
 
 
     })
- /** 
+ 
     it('By Model Home Scenario Default Mode', function() {
 
         
@@ -47,7 +47,7 @@ describe('Model Test Case Research And Reviews', function(){
         researchAndReviews.getTitle().should('contain','Car Research, Specs & Compare New Cars')
 
     })
-    */
+    
 
     it('Validate Selection By Model', function() {
 
@@ -153,29 +153,7 @@ describe('Model Test Case Research And Reviews', function(){
 
     })
 
-    it('Submit less than 25 words in Review Box', function() {
-
-        
-        researchAndReviews.getOverAllRating().eq(1).click({force:true})
-        researchAndReviews.getComfortRating().eq(2).click({force:true})
-        researchAndReviews.getInteriorDesignRating().eq(3).click({force:true})
-        researchAndReviews.getPerformanceRating().eq(4).click({force:true})
-        researchAndReviews.getValueforMoneyRating().eq(3).click({force:true})
-        researchAndReviews.getStyleExteriorRating().eq(1).click({force:true})
-        researchAndReviews.getReliabilityRating().eq(3).click({force:true})
-        researchAndReviews.getYourRecommendation().as('checkboxes').check({force:true})
-        researchAndReviews.getDescribebox().should('contain','Your review')
-        researchAndReviews.getVehicleReviewFormTitle().should('contain','Your review headline')
-        researchAndReviews.getStateOfPurchase().should('have.length','2').and('not.be.checked')
-        researchAndReviews.getPrimaryUse().should('have.length','3').and('not.be.checked')
-        researchAndReviews.getOwnerOrFormer().should('have.length','2').and('not.be.checked')
-        researchAndReviews.getDisplayNameBox().should('contain','Your display name').and('have.length','1')
-        researchAndReviews.getDisplayLocationBox().should('contain','Your city, state')
-        researchAndReviews.getSubmitButton().should('contain','Submit review')
-        
-        
-
-    })
+    
     
     
     

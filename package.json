@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed --record --key 05589af8-0057-4739-afe5-2ca65344c568",
+    "headerTest": "npm run test -- --spec \"cypress/integration/homepage/*\""
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,9 @@
   "description": "",
   "dependencies": {
     "cypress": "^9.6.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3"
   }
 }

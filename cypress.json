@@ -1,10 +1,10 @@
 {
-  "defaultCommandTimeout":500000,
-  "defaultCommandTimeout":30000,
-  "taskTimeout":100000,
-  "requestTimeout":15000,
-  
-    "env": {
-        "url": "https://www.cars.com/"
-      }
+  "defaultCommandTimeout": 30000,
+  "taskTimeout": 100000,
+  "requestTimeout": 15000,
+  "env": {
+    "url": "https://www.cars.com/"
+  },
+  "reporter": "mochawesome",
+  "projectId": "j1oc7w"
 }

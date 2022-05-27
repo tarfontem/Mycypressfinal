@@ -36,11 +36,11 @@ describe('Research By Make Test Case', function(){
 
     it('Validate Selection By Make Page', function() {
 
-        headerElement.getSignIn().click()
+        headerElement.getSignIn().click({force:true})
         cy.login(this.data.email,this.data.password)
-        headerElement.getResearchAndReviews().click()
+        headerElement.getResearchAndReviews().click({force:true})
 
-        researchAndReviews.getByMakeOption().click()
+        researchAndReviews.getByMakeOption().click({force:true})
         researchAndReviews.getPageTitle().should('contain','Car Research')
         researchAndReviews.getPopularcars().should('have.length','110')
 
