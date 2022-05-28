@@ -31,41 +31,48 @@ describe('Sign In Test Suite', function(){
 
     })
 
- 
-    it('Vehicle Search by Make', function() {
-
-        //search a vehicle by it make on home page giving the location, mileage, price, new and make sure all 
-        //selected vehicles are from the selected location and their name belongs to the make, and price is 
-        //in the range of the price selected
-        
+    it('Style and Search Options On default home page', function() { 
         headerElement.getSignIn().click()
 
         cy.login(this.data.email,this.data.password)
-        homepage.getPageTitle().should('eq','New Cars, Used Cars, Car Dealers, Prices & Reviews | Cars.com')
-        cy.searchByMake('New cars','Jeep','All models','$30,000','20 miles',this.data.zip)//custom command
-        homepage.getPageTitle().should('include','Jeep')//assure that the page title contains the make searched
-       
-        homepage.getMakeResultHeading().each(($el,index,$list) =>
+        homepage.getMakeOption().should('have.attr','aria-selected','true')//by default, this attribute is selected
+        homepage.getBodyStyleOption().should('have.attr','aria-selected','false')
+        homepage.getPageTitle().should('contain','New Cars, Used Cars, Car Dealers, Prices & Reviews')
+        homepage.getNewUsedMakesDropDown().next().should('contain','New/used')
+        homepage.getMakesMakesDropDown().next().should('contain','Make')
+        homepage.getModelMakesDropDown().next().should('contain','Model')
+        homepage.getPriceMakesDropDown().next().should('contain','Price')
+        homepage.getDistanceMakesDropDown().next().should('contain','Distance')
+        homepage.getZipMakesBox().next().should('contain','ZIP')
+        homepage.getSearchMakesBotton().should('contain','Search')
+        homepage.getBodyStyleOption().click({force:true})
+        homepage.getBodyStyleOption().should('have.attr','aria-selected','true')
+        homepage.getBodyStyleOption().should('contain','Body style')
+        homepage.getMakeOption().should('have.attr','aria-selected','false')
+        homepage.getNewUsedBodyStyle().next().should('contain','New/used')
+        homepage.getBodyStyleDropDown().next().should('contain','Body style')
+        homepage.getPriceBodyStyleDropDown().next().should('contain','Price')
+        homepage.getDistanceBodyStyleDropDown().next().should('contain','Distance')
+        homepage.getZipBodyStyleBox().next().should('contain','ZIP')
+        homepage.getSearchBodyStyleBotton().should('contain','Search')
+
+    })
+
+    it('Search by Make function', function() { 
+        headerElement.getSignIn().click()
+
+        cy.login(this.data.email,this.data.password)
+        homepage.getMakeOption().click({force:true})
         
-          {
-             const headertext = $el.text() 
-             for(index=1;index<$list.length;index++){
+        cy.searchByMake('New cars', 'Jeep','Wrangler','$30,000','30 miles',this.data.zip)
+        homepage.getActiveFilterTags().should('contain','New').and('contain','Jeep')
+        .and('contain','Wrangler').and('contain','Max price: $30,000')
+        homepage.getPageTitle().should('contain','New Jeep Wrangler for Sale Near Me')
 
-                if(headertext){
-                    expect(headertext).to.contain('Jeep')
-                }
-
-             }
-       
-
-
-            
-          })
-
-        
 
 
     })
+    
 
     
     it('Search by Body Style', function() { 
@@ -80,11 +87,6 @@ describe('Sign In Test Suite', function(){
         homepage.getMakeBodyStyle().should('contain','All makes')
         homepage.getPickupCheckBox().should('be.checked')
         homepage.getZipInputBodyStyle().should('have.value',this.data.zip)
-
-
-        
-       
-
     })
     
 

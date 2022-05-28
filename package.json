@@ -5,7 +5,9 @@
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
     "headTest": "npm run test -- --headed --record --key 05589af8-0057-4739-afe5-2ca65344c568",
-    "headerTest": "npm run test -- --spec \"cypress/integration/homepage/*\""
+    "headerTest": "npm run test -- --spec \"cypress/integration/homepage/*\"",
+    "merge":"mochawesome-merge mochawesome-report/*.json > output.json",
+    "generate_mochawesome_report":"marge output.json --reportDir ./ --inline"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "mocha": "^10.0.0",
-    "mochawesome": "^7.1.3"
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1"
   }
 }

@@ -1,10 +1,17 @@
 {
-  "defaultCommandTimeout": 30000,
+  "defaultCommandTimeout": 50000,
   "taskTimeout": 100000,
   "requestTimeout": 15000,
   "env": {
     "url": "https://www.cars.com/"
   },
+  
   "reporter": "mochawesome",
+ "reporterOptions": {
+   "charts":true,
+   "html": true,
+   "json": true,
+   "overwrite": false
+ },
   "projectId": "j1oc7w"
 }
