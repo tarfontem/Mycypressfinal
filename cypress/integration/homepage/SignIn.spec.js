@@ -7,6 +7,9 @@ const headerElement = new HeaderElements() //instantiate the HeaderElement class
 const signInPage = new SignInPageElements()  //instantiate the SignInPageElements
 
 describe('Sign In Test Suite', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     
 

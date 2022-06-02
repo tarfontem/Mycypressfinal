@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-28T12:56:39.906Z",
+    "end": "2022-05-28T12:58:10.611Z",
+    "duration": 90705,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5d080f19-d93e-40d2-9002-c8f85b56d4b2",
+      "title": "",
+      "fullFile": "cypress/integration/ResearchAndViews/researchByTypeTestCase.spec.js",
+      "file": "cypress/integration/ResearchAndViews/researchByTypeTestCase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "971b53cc-e8f1-47de-a0ef-eaf642684766",
+          "title": "Research By Type Test Case",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate Selection By Type Page",
+              "fullTitle": "Research By Type Test Case Validate Selection By Type Page",
+              "timedOut": null,
+              "duration": 37869,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password);\nheaderElement.getResearchAndReviews().click();\nresearchAndReviews.getModelTypes().click();\nresearchAndReviews.getModelTypes().should('have.attr', 'aria-selected', 'true');\nresearchAndReviews.getByMakeOption().should('have.attr', 'aria-selected', 'false');\nresearchAndReviews.getByModelOption().should('have.attr', 'aria-selected', 'false');\nresearchAndReviews.getPageTitle().should('contain', 'Car Research');\nresearchAndReviews.getUrl().should('contain', 'research');\nresearchAndReviews.getSedanCars().should('have.length', '12');",
+              "err": {},
+              "uuid": "2be30b2d-b332-49fa-a1a6-9944d1350f5e",
+              "parentUUID": "971b53cc-e8f1-47de-a0ef-eaf642684766",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Single Car Selection",
+              "fullTitle": "Research By Type Test Case Validate Single Car Selection",
+              "timedOut": null,
+              "duration": 48853,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password);\nheaderElement.getResearchAndReviews().click();\nresearchAndReviews.getSearchByType().click({\n  force: true\n});\nresearchAndReviews.getSedanCars().eq(0).click();\nresearchAndReviews.getCarResults().should('have.length', '20');\nresearchAndReviews.getCarMoreDetails().should('contain', 'Model details');\nresearchAndReviews.getCarMoreDetails().should('contain', 'Shop now');\nresearchAndReviews.getSedanCheckbox().should('be.checked');",
+              "err": {},
+              "uuid": "370c5ea6-19ca-49b2-82f2-b24afb5797e6",
+              "parentUUID": "971b53cc-e8f1-47de-a0ef-eaf642684766",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2be30b2d-b332-49fa-a1a6-9944d1350f5e",
+            "370c5ea6-19ca-49b2-82f2-b24afb5797e6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 86722,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

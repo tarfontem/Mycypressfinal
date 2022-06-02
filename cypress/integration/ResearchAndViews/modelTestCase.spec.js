@@ -13,6 +13,9 @@ const researchAndReviews = new ResearchAndReviews()
 
 
 describe('Model Test Case Research And Reviews', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     
 
@@ -141,7 +144,7 @@ describe('Model Test Case Research And Reviews', function(){
 
 
 
-        researchAndReviews.getSubmitButton().pause().click({force: true})
+        researchAndReviews.getSubmitButton().click({force: true})
         
         cy.wait(4000)
         

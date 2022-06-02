@@ -10,6 +10,9 @@ const homepage = new HomePageElements()
 const headerElement = new HeaderElements()
 
 describe('Sign In Test Suite', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     
 
@@ -49,7 +52,7 @@ describe('Sign In Test Suite', function(){
         homepage.getBodyStyleOption().should('have.attr','aria-selected','true')
         homepage.getBodyStyleOption().should('contain','Body style')
         homepage.getMakeOption().should('have.attr','aria-selected','false')
-        homepage.getNewUsedBodyStyle().next().should('contain','New/used')
+        homepage.getNewUsedBodyStyleDropDown().next().should('contain','New/used')
         homepage.getBodyStyleDropDown().next().should('contain','Body style')
         homepage.getPriceBodyStyleDropDown().next().should('contain','Price')
         homepage.getDistanceBodyStyleDropDown().next().should('contain','Distance')
@@ -61,13 +64,20 @@ describe('Sign In Test Suite', function(){
     it('Search by Make function', function() { 
         headerElement.getSignIn().click()
 
-        cy.login(this.data.email,this.data.password)
+        cy.login(this.data.email,this.data.password).then(function()
+        {
         homepage.getMakeOption().click({force:true})
-        
-        cy.searchByMake('New cars', 'Jeep','Wrangler','$30,000','30 miles',this.data.zip)
+        cy.searchByMake('New cars', 'Jeep','Wrangler','$30,000','30 miles',this.data.zip).then(function()
+        {
         homepage.getActiveFilterTags().should('contain','New').and('contain','Jeep')
         .and('contain','Wrangler').and('contain','Max price: $30,000')
-        homepage.getPageTitle().should('contain','New Jeep Wrangler for Sale Near Me')
+        homepage.getPageTitle().should('contain','New Jeep Wrangler for Sale Near Me') 
+        })
+        
+        })
+        
+        
+        
 
 
 
@@ -88,12 +98,16 @@ describe('Sign In Test Suite', function(){
         homepage.getPickupCheckBox().should('be.checked')
         homepage.getZipInputBodyStyle().should('have.value',this.data.zip)
     })
-    
+     
 
     it('Verify Search By What you love', function() { 
-        headerElement.getSignIn().click()
-
+        headerElement.getSignIn().click().then(function()
+       {
         cy.login(this.data.email,this.data.password) 
+
+       }).then(function()
+       
+       {
         homepage.getBodyStyleTypeDropDown().select('SUV')
         homepage.getPriceTypesDropDown().select('$50,000')
         homepage.getNextButton().click()
@@ -118,13 +132,8 @@ describe('Sign In Test Suite', function(){
         homepage.getTowingCheckBox3().check({force: true}).should('be.checked')
         homepage.getTryAgainButton().should('contain','Try again')
     
-        
-        
 
-
-
-
-
+       })
 
 
     })

@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-05-28T12:51:05.893Z",
+    "end": "2022-05-28T12:54:20.262Z",
+    "duration": 194369,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "deab3126-893e-46fe-ac52-43a4238485fb",
+      "title": "",
+      "fullFile": "cypress/integration/ResearchAndViews/modelTestCase.spec.js",
+      "file": "cypress/integration/ResearchAndViews/modelTestCase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "22192215-0b60-4160-9f13-c6944c31494b",
+          "title": "Model Test Case Research And Reviews",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "By Model Home Scenario Default Mode",
+              "fullTitle": "Model Test Case Research And Reviews By Model Home Scenario Default Mode",
+              "timedOut": null,
+              "duration": 17118,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getResearchAndReviews().click();\nresearchAndReviews.getByModelOption().click();\nresearchAndReviews.getMakeBox().should('have.attr', 'name', 'make');\nresearchAndReviews.getModelBox().should('contain', 'All models');\nresearchAndReviews.getYearsBox().should('contain', 'All years');\nresearchAndReviews.getResearchButton().should('contain', 'Research');\nresearchAndReviews.getTitle().should('contain', 'Car Research, Specs & Compare New Cars');",
+              "err": {},
+              "uuid": "ee1f9792-9658-42ca-9159-8be692614b03",
+              "parentUUID": "22192215-0b60-4160-9f13-c6944c31494b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Selection By Model",
+              "fullTitle": "Model Test Case Research And Reviews Validate Selection By Model",
+              "timedOut": null,
+              "duration": 34894,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password);\nheaderElement.getResearchAndReviews().click();\nresearchAndReviews.getByModelOption().click();\nresearchAndReviews.getMakeBox().select('Jeep');\nresearchAndReviews.getModelBox().select('Wrangler');\nresearchAndReviews.getYearsBox().select('2020');\nresearchAndReviews.getResearchButton().click({\n  force: true\n});\nresearchAndReviews.getHeaderLine().should('contain', '2020 Jeep Wrangler');\nresearchAndReviews.getViewLocalInventory().should('contain', 'View local inventory').and('have.attr', 'href');\nresearchAndReviews.getWriteReview().should('contain', 'Write a review').and('have.attr', 'href', '/research/jeep-wrangler-2020/write-a-review/');\nresearchAndReviews.getTitle().should('contain', '2020 Jeep Wrangler Specs');",
+              "err": {},
+              "uuid": "9e727074-8ab1-4cd9-9217-9f5d7743545a",
+              "parentUUID": "22192215-0b60-4160-9f13-c6944c31494b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Inspect Review Page",
+              "fullTitle": "Model Test Case Research And Reviews Inspect Review Page",
+              "timedOut": null,
+              "duration": 14388,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "researchAndReviews.getWriteReview().scrollIntoView();\nresearchAndReviews.getWriteReview().click();\nresearchAndReviews.getTitle().should('contain', 'Cars.com');\nresearchAndReviews.getAllFieldsRequired().should('contain', 'All fields are required');\nresearchAndReviews.getOverAllRating().should('have.length', '5');\nresearchAndReviews.getComfortRating().should('have.length', '5');\nresearchAndReviews.getInteriorDesignRating().should('have.length', '5');\nresearchAndReviews.getPerformanceRating().should('have.length', '5');\nresearchAndReviews.getValueforMoneyRating().should('have.length', '5');\nresearchAndReviews.getStyleExteriorRating().should('have.length', '5');\nresearchAndReviews.getReliabilityRating().should('have.length', '5');\nresearchAndReviews.getYourRecommendation().should('have.length', '2');\nresearchAndReviews.getDescribebox().should('contain', 'Your review');\nresearchAndReviews.getVehicleReviewFormTitle().should('contain', 'Your review headline');\nresearchAndReviews.getStateOfPurchase().should('have.length', '2').and('not.be.checked');\nresearchAndReviews.getPrimaryUse().should('have.length', '3').and('not.be.checked');\nresearchAndReviews.getOwnerOrFormer().should('have.length', '2').and('not.be.checked');\nresearchAndReviews.getDisplayNameBox().next().should('contain', 'Your display name');\nresearchAndReviews.getDisplayLocationBox().next().should('contain', 'Your city, state');\nresearchAndReviews.getSubmitButton().should('contain', 'Submit review');",
+              "err": {},
+              "uuid": "e6d49aee-23dd-42b2-a7de-e379ad3fc143",
+              "parentUUID": "22192215-0b60-4160-9f13-c6944c31494b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Submit Error Without Filling Any Field",
+              "fullTitle": "Model Test Case Research And Reviews Submit Error Without Filling Any Field",
+              "timedOut": null,
+              "duration": 122653,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(4000);\nresearchAndReviews.getOverAllRating().eq(1).click({\n  force: true\n});\nresearchAndReviews.getComfortRating().eq(2).click({\n  force: true\n});\nresearchAndReviews.getInteriorDesignRating().eq(3).click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getPerformanceRating().eq(4).click({\n  force: true\n});\nresearchAndReviews.getValueforMoneyRating().eq(0).click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getStyleExteriorRating().eq(1).click({\n  force: true\n});\nresearchAndReviews.getReliabilityRating().eq(3).click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getYourRecommendation().eq(1).check({\n  force: true\n});\nresearchAndReviews.getVehicleReviewFormTitle().type('My confirmation and review');\ncy.wait(4000);\nresearchAndReviews.getDescribebox2().type(this.data.description, {\n  force: true\n});\ncy.wait(4000); //.find('textarea').type(this.data.description,{force: true})\n//researchAndReviews.getDescribebox().prev().find('.hidden').type(this.data.description,{force: true})\nresearchAndReviews.getStateOfPurchase().eq(1).click({\n  force: true\n});\nresearchAndReviews.getPrimaryUse().eq(2).click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getOwnerOrFormer().eq(1).click({\n  force: true\n});\nresearchAndReviews.getDisplayNameBox().type(this.data.name);\ncy.wait(4000);\nresearchAndReviews.getDisplayLocationBox().type(this.data.location);\nresearchAndReviews.getPrimaryUse().eq(1).click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getDisplayEmailBox().type(this.data.email1);\nresearchAndReviews.getSubmitButton().click({\n  force: true\n});\ncy.wait(4000);\nresearchAndReviews.getErrorMessage().should('contain', 'We were unable to submit your review');\ncy.wait(4000);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 50000ms: Expected to find element: `.sds-notification__title`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 50000ms: Expected to find element: `.sds-notification__title`, but never found it.\n    at Context.eval (https://www.cars.com/__cypress/tests?p=cypress\\integration\\ResearchAndViews\\modelTestCase.spec.js:276:42)",
+                "diff": null
+              },
+              "uuid": "aca93be4-ffa7-4bf5-82af-f3816c0a40ab",
+              "parentUUID": "22192215-0b60-4160-9f13-c6944c31494b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee1f9792-9658-42ca-9159-8be692614b03",
+            "9e727074-8ab1-4cd9-9217-9f5d7743545a",
+            "e6d49aee-23dd-42b2-a7de-e379ad3fc143"
+          ],
+          "failures": [
+            "aca93be4-ffa7-4bf5-82af-f3816c0a40ab"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 189053,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

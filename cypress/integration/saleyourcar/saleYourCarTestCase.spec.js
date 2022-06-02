@@ -13,6 +13,9 @@ const sellYourCarPage = new SellYourCarPage()
 
 
 describe('Verify the functionality of Sales Page (Sell Your Car)', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     beforeEach(function() {
 

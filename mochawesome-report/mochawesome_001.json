@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-28T12:55:21.781Z",
+    "end": "2022-05-28T12:56:14.347Z",
+    "duration": 52566,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3cb5ded-4a30-4efb-a0b0-9d6051fa2c09",
+      "title": "",
+      "fullFile": "cypress/integration/ResearchAndViews/researchByMakeTestCase.spec.js",
+      "file": "cypress/integration/ResearchAndViews/researchByMakeTestCase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6f16e2ad-a7b5-4256-8836-165628115f3b",
+          "title": "Research By Make Test Case",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate Selection By Make Page",
+              "fullTitle": "Research By Make Test Case Validate Selection By Make Page",
+              "timedOut": null,
+              "duration": 35279,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click({\n  force: true\n});\ncy.login(this.data.email, this.data.password);\nheaderElement.getResearchAndReviews().click({\n  force: true\n});\nresearchAndReviews.getByMakeOption().click({\n  force: true\n});\nresearchAndReviews.getPageTitle().should('contain', 'Car Research');\nresearchAndReviews.getPopularcars().should('have.length', '110');",
+              "err": {},
+              "uuid": "78156051-c76e-4810-8433-e6a59535298c",
+              "parentUUID": "6f16e2ad-a7b5-4256-8836-165628115f3b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate Single Car Selection My Make",
+              "fullTitle": "Research By Make Test Case Validate Single Car Selection My Make",
+              "timedOut": null,
+              "duration": 13668,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "researchAndReviews.getPopularcars().eq(0).click({\n  force: true\n});\nresearchAndReviews.getAcura().click({\n  force: true\n});\nresearchAndReviews.getPageTitle().should('contain', 'Sedans - Pricing');\nresearchAndReviews.getMoreDetailsLinks().should('contain', 'Model details');\nresearchAndReviews.getShopNowLinks().should('contain', 'Shop now');",
+              "err": {},
+              "uuid": "33482284-bcf8-47f7-b651-41a650cf8f8c",
+              "parentUUID": "6f16e2ad-a7b5-4256-8836-165628115f3b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "78156051-c76e-4810-8433-e6a59535298c",
+            "33482284-bcf8-47f7-b651-41a650cf8f8c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 48947,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

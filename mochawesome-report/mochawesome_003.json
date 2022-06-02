@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-28T12:58:47.132Z",
+    "end": "2022-05-28T13:00:58.650Z",
+    "duration": 131518,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ac3cf61-57cc-4a0c-acf1-1fa268a43b5b",
+      "title": "",
+      "fullFile": "cypress/integration/homepage/SignIn.spec.js",
+      "file": "cypress/integration/homepage/SignIn.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dd0178cf-a5cb-48d8-bae5-426c4737c5ca",
+          "title": "Sign In Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login in with valid user input And SignOut",
+              "fullTitle": "Sign In Test Suite Login in with valid user input And SignOut",
+              "timedOut": null,
+              "duration": 44954,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click(); //assert that we are in the login page\n//assert that login page contains the email and password box\nsignInPage.getEmailBox().type(this.data.email);\nsignInPage.getPasswordBox().type(this.data.password);\nsignInPage.getSignInbutton().click();\nsignInPage.getUserAreaName().should('include.text', this.data.name);\nsignInPage.getPageUrl().should('include', 'cars.com');\nsignInPage.getSignOutButton().should('contain', 'Sign out');\nsignInPage.getSignOutButton().first().click({\n  force: true\n});\ncy.contains(this.data.name).should('not.exist');",
+              "err": {},
+              "uuid": "8c83a11c-e476-4696-8f9c-8be7008d28a4",
+              "parentUUID": "dd0178cf-a5cb-48d8-bae5-426c4737c5ca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login in with invalid username and password",
+              "fullTitle": "Sign In Test Suite Login in with invalid username and password",
+              "timedOut": null,
+              "duration": 31103,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\nsignInPage.getEmailBox().type(this.data.email1);\nsignInPage.getPasswordBox().type(this.data.password1);\nsignInPage.getSignInbutton().click();\nsignInPage.getWrongNotification().should('include.text', 'We were unable to sign you in');",
+              "err": {},
+              "uuid": "7329c6b7-e556-4c5e-afe5-1d993e5fead4",
+              "parentUUID": "dd0178cf-a5cb-48d8-bae5-426c4737c5ca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login in with valid username and invalid password",
+              "fullTitle": "Sign In Test Suite Login in with valid username and invalid password",
+              "timedOut": null,
+              "duration": 31373,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\nsignInPage.getEmailBox().type(this.data.email);\nsignInPage.getPasswordBox().type(this.data.password1);\nsignInPage.getSignInbutton().click();\nsignInPage.getWrongNotification().should('include.text', 'We were unable to sign you in');",
+              "err": {},
+              "uuid": "bfc248d0-c62e-4b95-ae89-3a0cadf65341",
+              "parentUUID": "dd0178cf-a5cb-48d8-bae5-426c4737c5ca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Login Page Options",
+              "fullTitle": "Sign In Test Suite Verify Login Page Options",
+              "timedOut": null,
+              "duration": 19986,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\nsignInPage.getEmailBox().should('include.text', 'Email'); ///should('have.class','.sds-label','Email')\nsignInPage.getPasswordBox().should('include.text', 'Password');\nsignInPage.getPageUrl().should('include', 'signin');\nsignInPage.getSignInWithFacebook().invoke('attr', 'href').should('eq', '/signin/fb_go/');\nsignInPage.getSignInWithGoogle().invoke('attr', 'href').should('eq', '/signin/google_go/');\nsignInPage.getSignInWithApple().invoke('attr', 'href').should('eq', '/signin/apple_go/');",
+              "err": {},
+              "uuid": "d337cb2c-778e-4f94-8da3-b9f9458d6a82",
+              "parentUUID": "dd0178cf-a5cb-48d8-bae5-426c4737c5ca",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c83a11c-e476-4696-8f9c-8be7008d28a4",
+            "7329c6b7-e556-4c5e-afe5-1d993e5fead4",
+            "bfc248d0-c62e-4b95-ae89-3a0cadf65341",
+            "d337cb2c-778e-4f94-8da3-b9f9458d6a82"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 127416,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

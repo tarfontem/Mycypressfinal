@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-28T13:01:43.999Z",
+    "end": "2022-05-28T13:05:30.221Z",
+    "duration": 226222,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "06587b06-6ce8-456c-915c-38e2eb744127",
+      "title": "",
+      "fullFile": "cypress/integration/homepage/homePage.spec.js",
+      "file": "cypress/integration/homepage/homePage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9e4d175d-35f6-4bd2-b0cf-5d5920f21e04",
+          "title": "Sign In Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Style and Search Options On default home page",
+              "fullTitle": "Sign In Test Suite Style and Search Options On default home page",
+              "timedOut": null,
+              "duration": 38023,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password);\nhomepage.getMakeOption().should('have.attr', 'aria-selected', 'true'); //by default, this attribute is selected\nhomepage.getBodyStyleOption().should('have.attr', 'aria-selected', 'false');\nhomepage.getPageTitle().should('contain', 'New Cars, Used Cars, Car Dealers, Prices & Reviews');\nhomepage.getNewUsedMakesDropDown().next().should('contain', 'New/used');\nhomepage.getMakesMakesDropDown().next().should('contain', 'Make');\nhomepage.getModelMakesDropDown().next().should('contain', 'Model');\nhomepage.getPriceMakesDropDown().next().should('contain', 'Price');\nhomepage.getDistanceMakesDropDown().next().should('contain', 'Distance');\nhomepage.getZipMakesBox().next().should('contain', 'ZIP');\nhomepage.getSearchMakesBotton().should('contain', 'Search');\nhomepage.getBodyStyleOption().click({\n  force: true\n});\nhomepage.getBodyStyleOption().should('have.attr', 'aria-selected', 'true');\nhomepage.getBodyStyleOption().should('contain', 'Body style');\nhomepage.getMakeOption().should('have.attr', 'aria-selected', 'false');\nhomepage.getNewUsedBodyStyleDropDown().next().should('contain', 'New/used');\nhomepage.getBodyStyleDropDown().next().should('contain', 'Body style');\nhomepage.getPriceBodyStyleDropDown().next().should('contain', 'Price');\nhomepage.getDistanceBodyStyleDropDown().next().should('contain', 'Distance');\nhomepage.getZipBodyStyleBox().next().should('contain', 'ZIP');\nhomepage.getSearchBodyStyleBotton().should('contain', 'Search');",
+              "err": {},
+              "uuid": "828fffe4-ccd3-482a-affd-61728579c332",
+              "parentUUID": "9e4d175d-35f6-4bd2-b0cf-5d5920f21e04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search by Make function",
+              "fullTitle": "Sign In Test Suite Search by Make function",
+              "timedOut": null,
+              "duration": 65251,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password).then(function () {\n  homepage.getMakeOption().click({\n    force: true\n  });\n  cy.searchByMake('New cars', 'Jeep', 'Wrangler', '$30,000', '30 miles', this.data.zip).then(function () {\n    homepage.getActiveFilterTags().should('contain', 'New').and('contain', 'Jeep').and('contain', 'Wrangler').and('contain', 'Max price: $30,000');\n    homepage.getPageTitle().should('contain', 'New Jeep Wrangler for Sale Near Me');\n  });\n});",
+              "err": {},
+              "uuid": "6384410d-0bbf-43b9-aa81-1cf493c4b08e",
+              "parentUUID": "9e4d175d-35f6-4bd2-b0cf-5d5920f21e04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search by Body Style",
+              "fullTitle": "Sign In Test Suite Search by Body Style",
+              "timedOut": null,
+              "duration": 61453,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click();\ncy.login(this.data.email, this.data.password);\ncy.searchByBodyType('New cars', 'Pickup truck', '$30,000', '20 miles', this.data.zip);\nhomepage.getPageTitle().should('include', 'New vehicles for Sale Near Me');\nhomepage.getLocationDistanceBodyStyle().should('have.value', '20');\nhomepage.getMaxPriceBodyStyle().should('have.value', '30000');\nhomepage.getNewUsedBodyStyle().should('have.value', 'new');\nhomepage.getMakeBodyStyle().should('contain', 'All makes');\nhomepage.getPickupCheckBox().should('be.checked');\nhomepage.getZipInputBodyStyle().should('have.value', this.data.zip);",
+              "err": {},
+              "uuid": "87c4d97f-db2e-40af-84ef-e711b8834baf",
+              "parentUUID": "9e4d175d-35f6-4bd2-b0cf-5d5920f21e04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Search By What you love",
+              "fullTitle": "Sign In Test Suite Verify Search By What you love",
+              "timedOut": null,
+              "duration": 56434,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click().then(function () {\n  cy.login(this.data.email, this.data.password);\n}).then(function () {\n  homepage.getBodyStyleTypeDropDown().select('SUV');\n  homepage.getPriceTypesDropDown().select('$50,000');\n  homepage.getNextButton().click();\n  homepage.getSearchHeading().should('contain', 'Cars.com Matchmaker');\n  homepage.getRoomness().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getCargoArea().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getRideComfortVeryCheckbox1().should('not.be.checked');\n  homepage.getRideComfortImportantCheckbox2().should('not.be.checked');\n  homepage.getRideComfortDontCareCheckbox3().should('not.be.checked');\n  homepage.getTechnology().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getGasMileage().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getOffRoadCapability().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getVisibility().should('have.attr', 'max', '10').and('have.attr', 'min', '0');\n  homepage.getTowingCheckBox1().should('not.be.checked');\n  homepage.getTowingCheckBox2().should('not.be.checked');\n  homepage.getTowingCheckBox3().should('not.be.checked');\n  homepage.getRideComfortVeryCheckbox1().check({\n    force: true\n  }).should('be.be.checked');\n  homepage.getRideComfortImportantCheckbox2().check({\n    force: true\n  }).should('be.checked');\n  homepage.getRideComfortDontCareCheckbox3().check({\n    force: true\n  }).should('be.checked');\n  homepage.getTowingCheckBox1().check({\n    force: true\n  }).should('be.checked');\n  homepage.getTowingCheckBox2().check({\n    force: true\n  }).should('be.checked');\n  homepage.getTowingCheckBox3().check({\n    force: true\n  }).should('be.checked');\n  homepage.getTryAgainButton().should('contain', 'Try again');\n});",
+              "err": {},
+              "uuid": "fd24fc11-cb1b-460e-92da-dcd291db5fda",
+              "parentUUID": "9e4d175d-35f6-4bd2-b0cf-5d5920f21e04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "828fffe4-ccd3-482a-affd-61728579c332",
+            "6384410d-0bbf-43b9-aa81-1cf493c4b08e",
+            "87c4d97f-db2e-40af-84ef-e711b8834baf",
+            "fd24fc11-cb1b-460e-92da-dcd291db5fda"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 221161,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

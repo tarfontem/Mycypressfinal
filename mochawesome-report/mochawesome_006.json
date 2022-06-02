@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-05-28T13:18:46.612Z",
+    "end": "2022-05-28T13:20:09.230Z",
+    "duration": 82618,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1c13c587-289e-40f5-8613-317113ef11a8",
+      "title": "",
+      "fullFile": "cypress/integration/servicesandrepairs/servicesTestCase.spec.js",
+      "file": "cypress/integration/servicesandrepairs/servicesTestCase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ba82985a-6e00-4c8a-bb5f-2290bca52f42",
+          "title": "Verify the function of Services & Repairs page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify the page options",
+              "fullTitle": "Verify the function of Services & Repairs page Verify the page options",
+              "timedOut": null,
+              "duration": 60001,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "headerElement.getSignIn().click({\n  force: true\n});\ncy.login(this.data.email, this.data.password);\nheaderElement.getServiceAndRepair().click({\n  force: true\n});\nservicesAndRepairs.getMakeDropdown().should('be.visible');\nservicesAndRepairs.getModelDropdown().should('be.visible');\nservicesAndRepairs.getYearDropdown().should('be.visible');\nservicesAndRepairs.getPageTitle().should('contain', 'Vehicle Service & Repair Center');\nservicesAndRepairs.getAdviceAndRecalls().should('have.length', '2');\nservicesAndRepairs.getAdviceAndRecalls().first().should('contain', 'Car safety & recalls');\nservicesAndRepairs.getAdviceAndRecalls().last().should('contain', 'Service & repair advice');\nservicesAndRepairs.getRecallLayout().should('have.length', '1');",
+              "err": {},
+              "uuid": "28694b2e-3963-4251-8148-17127a1b6050",
+              "parentUUID": "ba82985a-6e00-4c8a-bb5f-2290bca52f42",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Search for recalls",
+              "fullTitle": "Verify the function of Services & Repairs page Verify Search for recalls",
+              "timedOut": null,
+              "duration": 17049,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.searchRecall('Jeep', 'Wrangler', '2022');\nservicesAndRepairs.getPageTitle().should('contain', '2022 Jeep Wrangler Recalls');\nservicesAndRepairs.getPagelink().should('contain', 'recalls');",
+              "err": {},
+              "uuid": "292a9ad3-9d86-4a02-a064-a6df47e29785",
+              "parentUUID": "ba82985a-6e00-4c8a-bb5f-2290bca52f42",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "28694b2e-3963-4251-8148-17127a1b6050",
+            "292a9ad3-9d86-4a02-a064-a6df47e29785"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 77050,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "html": true,
+        "json": true,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

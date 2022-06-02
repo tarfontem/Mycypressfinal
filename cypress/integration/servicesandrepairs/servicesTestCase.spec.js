@@ -13,6 +13,9 @@ const servicesAndRepairs = new ServicesAndRepairs()
 
 
 describe('Verify the function of Services & Repairs page', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     
 
@@ -34,7 +37,7 @@ describe('Verify the function of Services & Repairs page', function(){
 
     })
 
-    it('Verify the page options', function() {
+    it('Verify the Service page options', function() {
 
         headerElement.getSignIn().click({ force: true })
         cy.login(this.data.email,this.data.password)

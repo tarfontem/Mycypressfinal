@@ -1,5 +1,5 @@
 class HomePageElements{
-
+//search by make
     getMakeOption() 
     {
         return cy.get('a#by-make').invoke('show')
@@ -113,9 +113,10 @@ class HomePageElements{
 
     getNewUsedBodyStyle()
     {
-        return cy.get('#bodystyle-search-stocktype').invoke('show')
+        return cy.get('#stock-type-select').invoke('show')
 
     }
+
 
     getMakeBodyStyle()
     {
@@ -229,7 +230,7 @@ class HomePageElements{
 
     getActiveFilterTags()
     {
-        return cy.get('active_filter_tags').invoke('show')
+        return cy.get('#active_filter_tags').invoke('show')
     }
 
     

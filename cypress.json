@@ -2,6 +2,7 @@
   "defaultCommandTimeout": 50000,
   "taskTimeout": 100000,
   "requestTimeout": 15000,
+  "chromeWebSecurity":true,
   "env": {
     "url": "https://www.cars.com/"
   },

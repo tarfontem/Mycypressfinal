@@ -12,6 +12,9 @@ const headerElement = new HeaderElements()
 const researchAndReviews = new ResearchAndReviews()
 
 describe('Research By Make Test Case', function(){
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
 
     
 

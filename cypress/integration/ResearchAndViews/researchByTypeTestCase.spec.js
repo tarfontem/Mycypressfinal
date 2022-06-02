@@ -13,6 +13,9 @@ const researchAndReviews = new ResearchAndReviews()
 
 describe('Research By Type Test Case', function(){
 
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
     
 
     beforeEach(function() {
